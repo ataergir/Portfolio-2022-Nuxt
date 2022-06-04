@@ -1,0 +1,90 @@
+.grid-container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    grid-column-gap: 25px;
+    grid-row-gap: 20px;
+}
+
+.grid-container > * {
+    display: flex;
+    flex-direction: column;
+    // background-color: rgba(1,1,1,0.1);
+}
+
+
+.name {
+    grid-area: 3 / 2 / 8 / 11;
+    h1{
+        font-size:20rem;
+        font-family: 'Neue Haas Display Thin';
+        display:flex;
+        flex-direction: row;
+        height: min-content;
+        width: min-content;
+
+        span{
+            width: min-content;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+        .name-letter-0{transition: transform 1s ease-in-out}
+        .name-letter-9{transition: transform 1s ease-in-out}
+
+    }
+
+}
+
+.name-hover-effect {
+    width: min-content;
+    height: min-content;
+    &:hover{
+        .name-letter-0{transform: translateX(-50%);}
+        .name-letter-9{transform: translateX(-400%);}
+        .name-letter-2{opacity:0}
+        .name-letter-3{opacity:0}
+        .name-letter-5{opacity:0}
+        .name-letter-6{opacity:0}
+        .name-letter-7{opacity:0}
+        .name-letter-8{opacity:0}
+    }
+}
+
+.services { 
+    grid-area: 6 / 2 / 8 / 5;
+    justify-content: flex-end;
+    font-size: 1.5rem;
+    font-family: 'Neue Haas Display Roman';
+    text-transform: lowercase;
+    
+    ul {
+        border-left: 1px solid black;
+        margin-left: - 1rem;
+        height: min-content;
+        li {
+            margin-left: 1rem;
+        }
+    }
+}
+
+.projects { 
+    grid-area: 2 / 9 / 8 / 12;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+.contacts { 
+    grid-area: 6 / 6 / 8 / 8;
+    align-items: flex-end;
+    justify-content: flex-end;
+    font-size: 1.5rem;
+    text-align: right;
+    ul {
+        height: min-content;
+        width: min-content;
+    }
+}

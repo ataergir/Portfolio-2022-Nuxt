@@ -1,0 +1,61 @@
+[
+  {
+    "title": "particles",
+    "date": "[soon]",
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit! Amet consectetur adipisicing elit.",
+    "categories":["Developement", "Design", "Art Direction"],
+    "images":["4.jpg"],
+    "link":"http://twitter.com/ataergir",
+    "more": true
+  },
+
+  {
+    "title": "minimalist",
+    "date": "04.22",
+    "description": "Voluptatum quod, ullam odio in sequi itaque libero saepe consequuntur omnis quam! Nihil tenetur fugiat sit et delectus!",
+    "categories":["Developement", "Design", "Art Direction"],
+    "images":["5.jpg"],
+    "link":"http://twitter.com/ataergir",
+    "more": true
+    
+  },
+
+  {
+    "title": "News API",
+    "date": "03.22",
+    "description": "Nostrum obcaecati voluptatum quod, ullam odio in sequi itaque libero saepe consequuntur omnis quam! Nihil tenetur fugiat sit et delectus!",
+    "categories":["Developement", "Design", "Art Direction"],
+    "images":["2.jpg"],
+    "link":"http://twitter.com/ataergir",
+    "more": true
+  },
+
+  {
+    "title": "Coldflesh Portfolio",
+    "date": "02.22",
+    "description": "Soluta voluptate perferendis voluptates dolores modi, nostrum obcaecati voluptatum quod, ullam odio in sequi itaque libero saepe consequuntur omnis quam! Nihil tenetur fugiat sit et delectus!","categories":["Developement", "Design", "Art Direction"],
+    "images":["3.jpg"],
+    "link":"http://twitter.com/ataergir",
+    "more": true
+  },
+
+  {
+    "title": "Music Scale",
+    "date": "02.22",
+    "description": "Voluptate perferendis voluptates dolores modi, nostrum obcaecati voluptatum quod, ullam odio in sequi itaque libero saepe consequuntur omnis quam! Nihil tenetur fugiat sit et delectus!",
+    "categories":["Developement", "Design", "Art Direction"],
+    "images":["4.jpg"],
+    "link":"http://twitter.com/ataergir",
+    "more": true
+  },
+
+  {
+    "title": "Palette Generator",
+    "date": "01.22",
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus qui ad at cupiditate itaque autem. A, dignissimos possimus voluptates ex tempore itaque illum ipsam.",
+    "categories":["Developement", "Design", "Art Direction"],
+    "images":["5.jpg"],
+    "link":"http://twitter.com/ataergir",
+    "more": true
+  }
+]

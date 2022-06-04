@@ -1,0 +1,59 @@
+.grid-container2 {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    grid-column-gap: 25px;
+    grid-row-gap: 20px;
+}
+
+.grid-container2 > * {
+    display: flex;
+    flex-direction: column;
+    // background-color: rgba(1,1,1,0.1);
+}
+
+
+.name2 {
+    grid-area: 3 / 2 / 8 / 11;
+    font-size:5rem;
+    font-family: 'Neue Haas Display Light';
+}
+
+.services2 { 
+    grid-area: 6 / 2 / 8 / 5;
+    justify-content: flex-end;
+    font-size: 1.5rem;
+    font-family: 'Neue Haas Display Roman';
+    text-transform: lowercase;
+    
+    ul {
+        border-left: 1px solid black;
+        margin-left: - 1rem;
+        height: min-content;
+        li {
+            margin-left: 1rem;
+        }
+    }
+}
+
+.projects2 { 
+    grid-area: 2 / 9 / 8 / 12;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+.contact2 { 
+    grid-area: 6 / 6 / 8 / 8;
+    align-items: flex-end;
+    justify-content: flex-end;
+    font-size: 1.5rem;
+    text-align: right;
+    ul {
+        height: min-content;
+        width: min-content;
+    }
+}
