@@ -46,7 +46,7 @@ export default {
 
 <style>
 .category-container{
-    border-radius: 2rem;
+    border-radius: 9999vw;
     width:min-content;
     height:min-content;
     margin-bottom:0.2rem;

@@ -68,19 +68,33 @@ import { gsap } from "gsap"
 </script>
 
 <style lang="scss" scoped>
+// $container-width:calc(100vw - 2 * $margin);
+// $projects-width:calc($container-width * 0.66666);
+// $single-column: calc(($projects-width / 8) - 7 * $column-gutter);
 .projects-ul{
-    width: 100%;
     li {
       .outside-li{
-        display: flex;
-        justify-content: space-between;
-        border-top: 1px solid rgba(0,0,0,1);
-        padding: 1rem 0;
+        border-top: 2px solid rgba(0,0,0,1);
         cursor: pointer;
 
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: $column-gutter;
+        grid-row-gap: 0px;
+
+        .date { 
+          grid-area: 1 / 1 / 2 / 2;
+          text-align: center;
+          font-size:2.5rem;
+        }
+
+        
+
         .title {
-          letter-spacing: 0.3rem;
+          grid-area: 1 / 2 / 2 / 8;
           text-transform: lowercase;
+          font-size: 3rem;
           transition: color 0.3s ease-out;
         }
 

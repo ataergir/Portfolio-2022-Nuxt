@@ -1,0 +1,35 @@
+<template>
+  <div class="available-container">
+      <div class="circle"></div>
+      <p class="available-text">Available</p>
+  </div>
+</template>
+
+<style lang="scss">
+$available-size: 2rem;
+.available-container{
+    border-radius: 999vw;
+    width:min-content;
+    height:min-content;
+    margin-bottom:0.2rem;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+}
+
+.circle{
+    border-radius: 999vw;
+    background-color: $available-color;
+    border:1px solid black;
+    width: $available-size * 0.75;
+    height: $available-size * 0.75;
+    margin: auto;
+    margin-left: $available-size * 0.75 * 0.5;
+}
+.available-text{
+    opacity:1;
+    padding:0.4rem 1rem;
+    white-space: nowrap;
+    font-size:$available-size;
+}
+</style>

@@ -1,24 +1,44 @@
-.grid-container {
+.section-container{
     width: 100vw;
     height: 100vh;
+    padding: $margin;
+    display: flex;
+    // align-items: center;
+    // justify-content: center;
+}
+
+$grid-width: calc(100vw - 2 * $margin);
+$grid-height: calc(100vh - 2 * $margin);
+.grid-container {
+    width: $grid-width;
+    height: $grid-height;
+
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(8, 1fr);
-    grid-column-gap: 25px;
-    grid-row-gap: 20px;
+    grid-column-gap: $column-gutter;
+    grid-row-gap: $row-gutter;
 }
 
-.grid-container > * {
+
+.available {
     display: flex;
-    flex-direction: column;
-    // background-color: rgba(1,1,1,0.1);
+    justify-content: flex-end;
 }
+
 
 
 .name {
-    grid-area: 3 / 2 / 8 / 11;
+    z-index: 1000;
+    grid-area: 7 / 1 / 9 / 5;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    color: white;
+    mix-blend-mode: difference;
     h1{
-        font-size:20rem;
+        font-size:30rem;
         font-family: 'Neue Haas Display Thin';
         display:flex;
         flex-direction: row;
@@ -38,8 +58,6 @@
 }
 
 .name-hover-effect {
-    width: min-content;
-    height: min-content;
     &:hover{
         .name-letter-0{transform: translateX(-50%);}
         .name-letter-9{transform: translateX(-400%);}
@@ -53,38 +71,22 @@
 }
 
 .services { 
-    grid-area: 6 / 2 / 8 / 5;
-    justify-content: flex-end;
-    font-size: 1.5rem;
+    grid-area: 1 / 1 / 3 / 5;
+    font-size: 3rem;
     font-family: 'Neue Haas Display Roman';
-    text-transform: lowercase;
-    
-    ul {
-        border-left: 1px solid black;
-        margin-left: - 1rem;
-        height: min-content;
-        li {
-            margin-left: 1rem;
-        }
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .projects { 
-    grid-area: 2 / 9 / 8 / 12;
+    grid-area: 1 / 5 / 9 / 13;
+    margin-right: -$margin;
+    margin-bottom: -$margin;
+
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    width: 100%;
     font-size: 1.5rem;
-}
-
-.contacts { 
-    grid-area: 6 / 6 / 8 / 8;
-    align-items: flex-end;
-    justify-content: flex-end;
-    font-size: 1.5rem;
-    text-align: right;
-    ul {
-        height: min-content;
-        width: min-content;
-    }
 }

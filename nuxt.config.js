@@ -41,6 +41,8 @@ export default {
       '~assets/scss/global.scss',
       '~assets/scss/grid.scss',
       '~assets/scss/grid2.scss',
+      '~assets/scss/grid3.scss',
+      '~assets/scss/contact-container.scss',
     ]
   },
 
@@ -49,6 +51,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: ['gsap']
+    transpile: ['gsap', 'three']
   },
 }
