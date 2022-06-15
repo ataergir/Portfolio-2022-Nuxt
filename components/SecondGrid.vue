@@ -2,10 +2,12 @@
 <div>
   <section class="section-container section2">
     <div class="grid-container">
+
       <div class="about-me-container">
-        <p>I’m a web designer and developer based in France. I studied graphic design in Art School  before discovering all the creative opportunities web developement can offer me. </p>
-        <p>I pay a special  care  to communicatoin as I think it  is one of the most important aspect of a valuable work.</p>
+        <p>I’m a freelance web designer and developer based in France. I studied graphic design in Art School  before discovering all the creative opportunities web developement can offer me. </p>
+        <p>I pay a special  care  to communication as I think it is one of the most important aspect of a valuable work.</p>
       </div>
+
 
       <h2 class="points-title design-title">Design
         <div class="title-line"></div>

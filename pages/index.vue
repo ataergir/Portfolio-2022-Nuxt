@@ -1,141 +1,171 @@
 <template>
-<div class="scroll-container">
-  <div class="sections-container">
+  <div class="scroll-container">
+    <MainGrid class="main-grid" />
+    <Three />
+    <ContactGrid />
 
-    <div class="fixed-div">
-      <MainGrid class="main-grid"/>
-      
-      <Three/>
-      <ContactGrid/>
-      <div class="horizontal-scroll">
-        <div class="pin-wrap">
-          <SecondGrid/>
-          <ThirdGrid/>
-        </div>
+    <div class="horizontal-scroll">
+      <div class="pin-wrap">
+        <SecondGrid />
+        <ThirdGrid />
       </div>
-      
-      
-
     </div>
-    
+
+    <div class="fake-section fake-section-1"></div>
+    <div class="fake-section fake-section-2"></div>
+    <div class="fake-section fake-section-3"></div>
+    <div class="fake-section fake-section-4"></div>
+    <div class="fake-section fake-section-5"></div>
+    <div class="fake-section fake-section-6"></div>
+    <div class="fake-section fake-section-7"></div>
+    <div class="fake-section fake-section-8"></div>
+    <div class="fake-section fake-section-9"></div>
+    <div class="fake-section fake-section-10"></div>
   </div>
-  
-</div>
 </template>
 
 <script>
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import ContactGrid from "../components/ContactGrid.vue"
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 export default {
-    name: "IndexPage",
-    mounted() {
-        import("locomotive-scroll").then(locomotiveModule => {
-            gsap.registerPlugin(ScrollTrigger);
-            const locoScroll = new locomotiveModule.default({
-                el: document.querySelector(".scroll-container"),
-                smooth: true,
-                lerp: 0.05,
-                smoothMobile: false,
-            });
-            locoScroll.on("scroll", ScrollTrigger.update);
-            ScrollTrigger.scrollerProxy(".scroll-container", {
-                scrollTop(value) {
-                    return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
-                },
-                getBoundingClientRect() {
-                    return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-                },
-                pinType: document.querySelector(".scroll-container").style.transform ? "transform" : "fixed"
-            });
-            window.addEventListener("load", function () {
-                const tl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: ".sections-container",
-                        scroller: ".scroll-container",
-                        // markers:true,
-                        start: "top top",
-                        end: "bottom bottom",
-                        scrub: true
-                    }
-                });
-                const cameraParams = {
-                  y: -0.3,
-                  z: 1.1
-                };
-                const invertEase = 'Power4.easeOut'
-                const invertEase2 = 'Power4.easeIn'
-                gsap.set(".horizontal-scroll", { yPercent: "-100" });
+  name: 'IndexPage',
+  mounted() {
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        
+      import('locomotive-scroll').then((locomotiveModule) => {
+        gsap.registerPlugin(ScrollTrigger)
+        const locoScroll = new locomotiveModule.default({
+          el: document.querySelector('.scroll-container'),
+          smooth: true,
+          lerp: 0.05,
+        })
+        locoScroll.on('scroll', ScrollTrigger.update)
+        ScrollTrigger.scrollerProxy('.scroll-container', {
+          scrollTop(value) {
+            return arguments.length
+              ? locoScroll.scrollTo(value, 0, 0)
+              : locoScroll.scroll.instance.scroll.y
+          },
+          getBoundingClientRect() {
+            return {
+              top: 0,
+              left: 0,
+              width: window.innerWidth,
+              height: window.innerHeight,
+            }
+          },
+          pinType: document.querySelector('.scroll-container').style.transform
+            ? 'transform'
+            : 'fixed',
+        })
 
-                tl
-                    .to(".main-grid", { yPercent: 10, ease: "none" }, 0)
-                    .to(".name", { yPercent: "-100", ease: "none" }, 0)
-                    .from(".webgl", { y: "-100vh", ease: "none", }, 0)
-                    .to(cameraParams, { y: 0.4, ease: "none", onUpdate: updateCamera })
-                    .to(cameraParams, { z: 1.01, ease: "none", onUpdate: updateCamera }, "<")
-                    .to(".horizontal-scroll", { yPercent: "0", ease: "Power2.easeOut", delay: -0.2 })
-                    .from(".section2", { backgroundColor: "rgba(0,0,0,0)", ease: "Power4.easeOut"},'<')
-                    .to(".pin-wrap", { x: "-99.9vw", ease: "none", delay: 0.1, onStart: eyeAnimationTrue, onReverseComplete: eyeAnimationFalse })
+        ScrollTrigger.defaults({ scroller: '.scroll-container' })
+
+        ScrollTrigger.addEventListener('refresh', () => locoScroll.update())
+        ScrollTrigger.refresh()
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            scroller: '.scroll-container',
+            markers: false,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: true,
+          },
+        })
+        const cameraParams = {
+          y: -0.3,
+          z: 1.1,
+        }
+        // const invertEase = 'Power4.easeOut'
+        // const invertEase2 = 'Power4.easeIn'
+
+        let nameYAnimation = -100
+        const mediaQuery = window.matchMedia('(max-width: 768px)')
+        if (mediaQuery.matches) {
+          nameYAnimation = 100
+        }
+        gsap.set('.horizontal-scroll', { yPercent: '-100', display: 'grid' })
+        gsap.set('.webgl', { y: '-100vh', display: 'inline' })
+        tl.to('.name',{ yPercent: nameYAnimation, ease: 'none', duration: 3 },0)
+          .to('.available-container',{ opacity: '0', ease: 'Power4.easeIn' },0)
+          .to('.webgl', { y: '0', ease: 'none', duration: 1.5 }, 0)
+          .to(cameraParams,{ y: 0.4, ease: 'none', duration: 3, onUpdate: updateCamera },'>')
+          .to(cameraParams,{ z: 1.01, ease: 'none', duration: 3, onUpdate: updateCamera },'<')
+          .to('.horizontal-scroll', {yPercent: '0',ease: 'none',delay: -0.2, duration:2},'>')
+          .to('.webgl', { yPercent: '98', ease: 'none', duration:2 }, '<')
+
+          .to('.pin-wrap', {
+            x: '-99.9vw',
+            ease: 'none',
+            delay: 0.5,
+            duration:3,
+            onStart: eyeAnimationTrue,
+            onReverseComplete: eyeAnimationFalse,
+          },'>')
+          .to('.webgl', { yPercent: '0', ease: 'none' }, '<')
+
+          // .to(".pin-wrap *", { color: "rgba(0,0,0,1)", ease: invertEase }, "<")
+          // .to(".pin-wrap section", { backgroundColor: "rgba(255,255,255,1)", ease: invertEase }, "<")
+          // .to(".circle-title", { borderColor: "rgba(0,0,0,1)",backgroundColor: "rgba(0,0,0,1)", ease: invertEase }, "<")
+          .to('.circle-title',{ backgroundColor: 'rgba(255,255,255,1)', ease: 'none' },'<')
+          // .to(".title-line", { borderColor: "rgba(0,0,0,1)", ease: invertEase }, "<")
+
+          .to('.contact-container', { display: 'grid', ease: 'none' }, '<')
+          .to('.main-grid', { display: 'none', ease: 'none' }, '<')
+
+          .to('.horizontal-scroll', { y: '100vh', ease: 'none', duration:2 })
+          .from('.contact-container', { y: '33vh', ease: 'none', duration:2 }, '<')
+
+        function updateCamera() {
+          $nuxt.$emit('cameraUpdate', cameraParams)
+        }
+
+        function eyeAnimationFalse() {
+          $nuxt.$emit('eyeAnimationFalse')
+        }
+        function eyeAnimationTrue() {
+          $nuxt.$emit('eyeAnimationTrue')
+        }
+
+        tl.to('.projects-ul', { yPercent: 100, duration: 2, ease: 'none' }, 0)
+
+        const services = document.querySelectorAll('.service')
+        for (let i = 0; i < services.length; i++) {
+          tl.to(
+            `.service-${i}`,
+            {
+              xPercent: '-110',
+              yPercent: '-10',
+              ease: 'Power4.easeIn',
+              duration: 3,
+              delay: 0.1 * i,
+            },
+            0
+          )
+        }
+        // setTimeout(()=>{locoScroll.scrollTo('bottom', {duration:5000})},10000)
+        
+        const nameLetters = document.querySelectorAll('.name span')
+        for (let i = 1; i < nameLetters.length - 2; i++) {
+          if (i != 1 && i != 4)
+            tl.to(
+              `.name-letter-${i}`,
+              {
+                y: `${i * 2}vh`,
+                ease: 'none',
+                duration: 3,
+              },
+              0
+            )
+        }
 
 
-                    // .to(".pin-wrap *", { color: "rgba(0,0,0,1)", ease: invertEase2 }, "<")
-                    // .to(".points-title", { color: "rgba(0,0,0,1)", ease: invertEase2 }, "<")
-                    // .to(".pin-wrap *", { backgroundColor: "rgba(255,255,255,1)", ease: invertEase2 }, "<")
-                    .to(".circle-title", { backgroundColor: "rgba(255,255,255,1)", ease: invertEase }, "<")
-                    // .to(".title-line", { borderColor: "rgba(0,0,0,1)", ease: invertEase2 }, "<")
-
-
-                    .to(".contact-container",{display:'grid', ease:'none'},'<')
-                    .to(".main-grid",{display:'none', ease:'none'},'<')
-
-                    .to(".horizontal-scroll", { y: "100vh", ease: "none" })
-                    .from(".contact-container", { y: "33vh", ease: "none" },'<')
-
-                function updateCamera() {
-                    $nuxt.$emit("cameraUpdate", cameraParams)
-                }
-
-                function eyeAnimationFalse() {
-                  $nuxt.$emit("eyeAnimationFalse")
-                }
-                function eyeAnimationTrue() {
-                  $nuxt.$emit("eyeAnimationTrue")
-                }
-
-                tl.to('.projects-ul',{yPercent:100, duration:1, ease:'none'},0)
-                const projects = document.querySelectorAll('.project')
-                for(let i = 0; i < projects.length ; i++){
-                  tl.to(`.project-${i}`, {y:`-${i * 10}`, ease:'none',duration:2},0)
-                }
-                const services = document.querySelectorAll('.service')
-                for(let i = 0; i < services.length ; i++){
-                  tl.to(`.service-${i}`, {opacity:`${i * 3}vh`, ease:'none',duration:2},0)
-                }
-
-                const nameLetters = document.querySelectorAll('.name span')
-                for(let i = 1; i < nameLetters.length - 2 ; i++){
-                  if(i != 1 && i!= 4)
-                  tl.to(`.name-letter-${i}`, {
-                    y:`${i * 2}vh`,
-                    ease:'none',
-                    duration:2},0)
-                }
-                const fixedDiv = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: ".sections-container",
-                        scroller: ".scroll-container",
-                        start: "top top",
-                        end: "bottom top",
-                        scrub: true
-                    }
-                });
-                fixedDiv.to(".fixed-div", { y: "1200vh", ease: "none" });
-                ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
-                ScrollTrigger.refresh();
-            });
-        });
-    },
-    components: { ContactGrid }
+      })
+    },3000) //loading animation time
+  })
+  }
 }
 </script>
 
@@ -143,34 +173,39 @@ export default {
 * {
   @include reset;
 }
-/* Hide scrollbar for Chrome, Safari and Opera */
-.scroll-container::-webkit-scrollbar {
-    display: none;
-}
 
-.main-grid{
-  position:fixed;
-  overflow:hidden;
-}
-.horizontal-scroll{
-  opacity:1;
+
+.main-grid {
   position: fixed;
-  cursor:default;
+  overflow: hidden;
+}
+.horizontal-scroll {
+  position: fixed;
+  display: none;
+}
+.webgl {
+  display:none;
 }
 
-
-.scroll-container  {
-  overflow:hidden;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-.sections-container{
-  position:relative;
-  height: 1200vh;
-}
-
-.pin-wrap{
+.pin-wrap {
   display: flex;
   flex-direction: row;
+}
+
+.sections-container {
+  position: fixed;
+  z-index: 2;
+}
+
+.scroll-container {
+  width: 100vw;
+  overflow: hidden;
+  transform: none !important;
+}
+
+.fake-section {
+  width: 0;
+  height: 100vh;
+  pointer-events: none !important;
 }
 </style>

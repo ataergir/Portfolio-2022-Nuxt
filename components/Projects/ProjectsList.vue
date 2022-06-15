@@ -18,12 +18,16 @@
           <div class="img-container" v-if="project.images">
             <div class="img-bg" v-for="(img, index) in project.images" :key="index" :style="{ backgroundImage: `url(img/${img})`}"></div>
           </div>
-          <div class="project-categories">
-            <ProjectsCategory v-for="(category, index) in project.categories" :key="index" :category='category' class="project-category"/>
+
+          <div class="text-categories-container">
+            <div class="project-categories">
+              <ProjectsCategory v-for="(category, index) in project.categories" :key="index" :category='category' class="project-category"/>
+            </div>
+            
+
+            <p v-if="project.description" class="project-description">{{ project.description }}</p>
           </div>
           
-
-          <p v-if="project.description" class="project-description">{{ project.description }}</p>
           
           <div class="margin"></div>
         </div>
@@ -72,6 +76,7 @@ import { gsap } from "gsap"
 // $projects-width:calc($container-width * 0.66666);
 // $single-column: calc(($projects-width / 8) - 7 * $column-gutter);
 .projects-ul{
+    min-width:100%;
     li {
       .outside-li{
         border-top: 2px solid rgba(0,0,0,1);
@@ -86,7 +91,7 @@ import { gsap } from "gsap"
         .date { 
           grid-area: 1 / 1 / 2 / 2;
           text-align: center;
-          font-size:2.5rem;
+          font-size:3rem;
         }
 
         
@@ -109,8 +114,30 @@ import { gsap } from "gsap"
           height:0;
           overflow:hidden;
           opacity:0;
+          display:flex;
+          flex-direction: row;
+          gap:1rem;
+          align-content: right;
+
+          @media screen and (min-width: 320px) {
+            flex-direction: column;
+            margin: 0 1rem;
+          }
+          @media screen and (min-width: 720px) {
+            flex-direction: row;
+            margin: 0 0;
+          }
+
+          .text-categories-container{
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding-top: 1rem;
+          }
           .project-description{
             text-align:justify;
+            font-size:1.8rem;
+            max-width: 40rem;
           }
           .project-categories {
             display: flex;
@@ -124,18 +151,23 @@ import { gsap } from "gsap"
             gap:1rem;
             margin-bottom:1rem;
 
-            width:100%;
+            width:auto;
             height:auto;
             .img-bg{
-              width:100%;
-              height:33vh;
               border-radius:0.5rem;
               background-size: 100% auto;
+              @media screen and (min-width: 320px) {
+                width:50vw;
+                height:30vw;
+              }
+              @media screen and (min-width: 720px) {
+                width:30vw;
+                height:20vw;
+              }
             }
           }
           .margin{
             height:1rem;
-            // background-color:blue;
           }
       }
 

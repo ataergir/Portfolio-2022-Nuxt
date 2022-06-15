@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Portfolio-2022-Nuxt',
+    title: 'Ata Ergir - Freelance Developer / Designer',
     htmlAttrs: {
       lang: 'en',
     },

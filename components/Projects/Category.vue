@@ -55,5 +55,6 @@ export default {
     opacity:1;
     padding:0.4rem 1rem;
     white-space: nowrap;
+    font-size: 1.8rem;
 }
 </style>

@@ -6,12 +6,12 @@
 </template>
 
 <style lang="scss">
-$available-size: 2rem;
+$available-size: 2.2rem;
+$available-size-small: 1rem;
 .available-container{
     border-radius: 999vw;
     width:min-content;
     height:min-content;
-    margin-bottom:0.2rem;
     border: 1px solid black;
     display: flex;
     flex-direction: row;
@@ -20,16 +20,42 @@ $available-size: 2rem;
 .circle{
     border-radius: 999vw;
     background-color: $available-color;
+    animation: blinkingCircle 2s infinite ease-in-out;
     border:1px solid black;
-    width: $available-size * 0.75;
-    height: $available-size * 0.75;
+    
     margin: auto;
-    margin-left: $available-size * 0.75 * 0.5;
+    
+    @media screen and (min-width: 320px) {
+        margin-left: $available-size-small * 0.75 * 0.5;
+        width: $available-size-small * 0.75;
+        height: $available-size-small * 0.75;
+    }
+    @media screen and (min-width: 720px) {
+        margin-left: $available-size * 0.75 * 0.5;
+        width: $available-size * 0.75;
+        height: $available-size * 0.75;
+    }
 }
+
+@keyframes blinkingCircle{
+    0%		{ background-color: $available-color;}
+    50%		{ background-color: transparent;}
+    100%	{ background-color: $available-color;}
+}
+
 .available-text{
     opacity:1;
-    padding:0.4rem 1rem;
+    
     white-space: nowrap;
-    font-size:$available-size;
+    
+
+    @media screen and (min-width: 320px) {
+        font-size:$available-size-small;
+        padding:0.2rem 0.5rem;
+    }
+    @media screen and (min-width: 720px) {
+        font-size:$available-size;
+        padding:0.4rem 1rem;
+    }
 }
 </style>

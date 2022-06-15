@@ -2,7 +2,7 @@
 <div>
   <section class="section-container section">
     <div class="loading-bg">
-      <div class="loading-text">33%</div>
+      <!-- <div class="loading-text">33%</div> -->
     </div>
     <div class="grid-container">
     
@@ -43,29 +43,27 @@
 
 <script>
 import { gsap } from "gsap"
-import Available from "./Available.vue"
 export default {
     mounted() {
-        setTimeout(() => {
-            const tlLoad = gsap.timeline({});
-            tlLoad.to(".loading-bg", { yPercent: -100, duration: 3 })
-                .to(".loading-bg", { xPercent: 1000, duration: 0, ease: "none" })
-                .to('.name h1',{fontSize:"10rem", duration:2, ease:'Power4.easeInOut',
-                onComplete:function(){
-                  document.querySelector('.name h1').classList.add('name-hover-effect')
-                }
-                },"-=1")
-                .from(".opacity-fade-in", { opacity: 0, duration: 4, ease: "Power4.easeOut" })
-                .from(".translate-in", { yPercent: 200, duration: 3, ease: "Power4.easeOut" }, "<")
-                .from(".translate-in-slow", { yPercent: 100, opacity: 0, duration: 4, ease: "Power4.easeOut", onComplete: function () { $nuxt.$emit("nextPlane"); }
-            }, "<");
-            const projects = document.querySelectorAll('.project')
-            for(let i = 0; i < projects.length ; i++){
-              tlLoad.from(`.project-${i}`, {y:100, duration:`${1 + i * 1.1}`, ease:'Power4.easeOut'},'<')
-            }
-        }, 2000);
+    const tlLoad = gsap.timeline({})
+
+    tlLoad
+    .to(".loading-bg", { yPercent: -100, duration: 3 })
+    .to(".loading-bg", { xPercent: 1000, duration: 0, ease: "none" })
+    .to('.name h1',{fontSize:"8.3vw", duration:2, ease:'Power4.easeInOut',
+    onComplete:function(){
+      document.querySelector('.name h1').classList.add('name-hover-effect')
     },
-    components: { Available }
+    },"-=1")
+    .from(".opacity-fade-in", { opacity: 0, duration: 4, ease: "Power4.easeOut" })
+    .from(".translate-in", { yPercent: 200, duration: 3, ease: "Power4.easeOut" }, "<")
+    .from(".translate-in-slow", { yPercent: 100, opacity: 0, duration: 4, ease: "Power4.easeOut", onComplete: function () { $nuxt.$emit("nextPlane"); }
+    }, "<");
+    const projects = document.querySelectorAll('.project')
+    for(let i = 0; i < projects.length ; i++){
+      tlLoad.from(`.project-${i}`, {y:100, duration:`${1 + i * 1.1}`, ease:'Power4.easeOut'},'<')
+    }
+    }
 }
 </script>
 
@@ -84,6 +82,7 @@ export default {
     display:flex;
     flex-direction:column-reverse;
     margin-left: -$margin;
+    margin-top: -$margin;
     .loading-text{
       color:white;
       font-size:5rem;

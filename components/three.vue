@@ -124,6 +124,9 @@ export default {
 
         this.renderer.setSize(this.sizes.width, this.sizes.height)
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+
+        document.querySelector('.name h1').style.fontSize = "8.3vw";
+        
     },
     animate: function() {
         this.stats.begin()
