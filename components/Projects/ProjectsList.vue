@@ -59,7 +59,7 @@ import { gsap } from "gsap"
           for(let y = 0; y < outsideLis.length ; y++){
             if(y != i){
               outsideLis[y].classList.remove('open')
-              gsap.to(`.inside-li-${y}`, {height: "0", opacity:"0", duration: 1, ease:'Power4.easOut'})
+              gsap.to(`.inside-li-${y}`, {height: "0", opacity:"0", duration: 1, ease:'Power1.easeOut'})
             }
           }
         },
