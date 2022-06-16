@@ -17,25 +17,29 @@ export default {
 
           switch(this.category){
             case 'Design': 
-                bgColor = '#D9FFCC'
-                textColor = 'black'
-                break;
-            case 'Art Direction': 
                 bgColor = '#E1F1FF'
                 textColor = 'black'
                 break;
+            case 'Art Direction': 
+                bgColor = '#FFD6A5'
+                textColor = 'black'
+                break;
             case 'Developement': 
-                bgColor = '#FFFACF'
+                bgColor = '#FDFFB6'
                 textColor = 'black'
                 break;
             case 'WebGL': 
-                bgColor = '255,255,0'
+                bgColor = '#CAFFBF'
                 textColor = 'black'
                 break;
-            case 'Front End': 
-                bgColor = '0,255,120'
+            case 'Motion Design': 
+                bgColor = '#fec5bb'
                 textColor = 'black'
                 break;
+            // case 'Front End': 
+            //     bgColor = 'rgb(0,255,120)'
+            //     textColor = 'black'
+            //     break;
           }
 
         return 'background-color: ' + bgColor + '; opacity: ' + opacity + '; color: ' + textColor;

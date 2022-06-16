@@ -26,6 +26,12 @@
             
 
             <p v-if="project.description" class="project-description">{{ project.description }}</p>
+
+            <div class="project-links">
+              <a v-if="project.link" :href='project.link' target="_blank" rel="noopener noreferrer">see live ➝</a>
+              <a v-if="project.repo" :href='project.repo' target="_blank" rel="noopener noreferrer">see repo ➝</a>
+            </div>
+            
           </div>
           
           
@@ -157,14 +163,37 @@ import { gsap } from "gsap"
               border-radius:0.5rem;
               background-size: 100% auto;
               @media screen and (min-width: 320px) {
-                width:50vw;
-                height:30vw;
+                // width:calc(100vw - 2rem);
+                // height:calc((100vw - 2rem) * (9/16)) ;
+                width:calc(70vw);
+                height:calc((70vw) * (9/16)) ;
               }
               @media screen and (min-width: 720px) {
                 width:30vw;
-                height:20vw;
+                height:16.88vw;
               }
             }
+          }
+
+          .project-links{
+            display:flex;
+            flex-direction: column;
+            align-self: flex-end;
+            align-items: flex-end;
+
+            @media screen and (min-width: 320px) {
+              flex-direction: row;
+              gap:1rem;
+              }
+              @media screen and (min-width: 720px) {
+                flex-direction: column;
+                gap:0;
+              }
+            a{
+              color:black;
+              font-size: 1.8rem;
+            }
+            
           }
           .margin{
             height:1rem;

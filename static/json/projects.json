@@ -1,61 +1,43 @@
 [
   {
-    "title": "particles",
+    "title": "durum kebab",
     "date": "[soon]",
-    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit! Amet consectetur adipisicing elit.",
-    "categories":["Developement", "Design", "Art Direction"],
-    "images":["4.jpg"],
-    "link":"http://twitter.com/ataergir",
-    "more": true
+    "description": "I built my first portfolio using mainly Three.js and GSAP.",
+    "categories":["Developement", "Design", "WebGL", "Motion Design"],
+    "images":[""],
+    "link":"",
+    "more": false
   },
 
   {
-    "title": "minimalist",
+    "title": "salade tomate oignon",
+    "date": "[soon]",
+    "description": "",
+    "categories":["Developement", "Design", "Motion Design", "WebGL"],
+    "images":[""],
+    "link":"",
+    "more": false
+  },
+
+  {
+    "title": "portfolio v1",
     "date": "04.22",
-    "description": "Voluptatum quod, ullam odio in sequi itaque libero saepe consequuntur omnis quam! Nihil tenetur fugiat sit et delectus!",
-    "categories":["Developement", "Design", "Art Direction"],
-    "images":["5.jpg"],
-    "link":"http://twitter.com/ataergir",
-    "more": true
-    
+    "description": "I built my first portfolio using mainly Three.js and GSAP.",
+    "categories":["Developement", "Design", "WebGL", "Motion Design"],
+    "images":["portfolio-v1.jpg"],
+    "link":"http://ataergir.com/",
+    "more": false
   },
 
   {
-    "title": "News API",
-    "date": "03.22",
-    "description": "Nostrum obcaecati voluptatum quod, ullam odio in sequi itaque libero saepe consequuntur omnis quam! Nihil tenetur fugiat sit et delectus!",
-    "categories":["Developement", "Design", "Art Direction"],
-    "images":["2.jpg"],
-    "link":"http://twitter.com/ataergir",
-    "more": true
-  },
-
-  {
-    "title": "Coldflesh Portfolio",
+    "title": "scale",
     "date": "02.22",
-    "description": "Soluta voluptate perferendis voluptates dolores modi, nostrum obcaecati voluptatum quod, ullam odio in sequi itaque libero saepe consequuntur omnis quam! Nihil tenetur fugiat sit et delectus!","categories":["Developement", "Design", "Art Direction"],
-    "images":["3.jpg"],
-    "link":"http://twitter.com/ataergir",
-    "more": true
-  },
-
-  {
-    "title": "Music Scale",
-    "date": "02.22",
-    "description": "Voluptate perferendis voluptates dolores modi, nostrum obcaecati voluptatum quod, ullam odio in sequi itaque libero saepe consequuntur omnis quam! Nihil tenetur fugiat sit et delectus!",
-    "categories":["Developement", "Design", "Art Direction"],
-    "images":["4.jpg"],
-    "link":"http://twitter.com/ataergir",
-    "more": true
-  },
-
-  {
-    "title": "Palette Generator",
-    "date": "01.22",
-    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus qui ad at cupiditate itaque autem. A, dignissimos possimus voluptates ex tempore itaque illum ipsam.",
-    "categories":["Developement", "Design", "Art Direction"],
-    "images":["5.jpg"],
-    "link":"http://twitter.com/ataergir",
-    "more": true
+    "description": "I created a tool to help musicians easily find chord progressions in any scale. Feel free to contribute to the scales list on the Github repository!",
+    "categories":["Developement", "Design"],
+    "images":["scale.jpg"],
+    "link":"http://music-scale.netlify.app/",
+    "repo":"http://github.com/ataergir/music-scale",
+    "more": false
   }
+
 ]
