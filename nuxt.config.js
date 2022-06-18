@@ -14,7 +14,8 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/png', href: '/favicon/favicon.png' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
