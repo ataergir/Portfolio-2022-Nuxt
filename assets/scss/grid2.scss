@@ -2,6 +2,8 @@
 .section3{
     color:$color;
     background-color:rgba(0,0,0,1);
+    background-color:rgba(255,255,255,1);
+    color:black;
 }
 
 // avoid grid distortion
@@ -73,7 +75,7 @@
 .title-line{
     height: 0;
     width: 100vw;
-    border-bottom: 1px solid $color;
+    border-bottom: 1px solid rgb(10,10,10);
 }
 
 .design-point,
@@ -99,8 +101,199 @@
 }
 
 .circle-title {
-    border: 1px solid white;
+    border: 1px solid black;
     border-radius: 9999vh;
     height: 0.8rem;
     width: 0.8rem;
+    // display: none;
+}
+
+
+
+.clock-container { grid-area: 4 / 8 / 5 / 9; }
+.stars-container { grid-area: 5 / 8 / 6 / 9; }
+.circles-illustration-container { grid-area: 6 / 8 / 7 / 9; }
+.squares-container { grid-area: 7 / 8 / 8 / 9; }
+
+.icon {
+    height: 5vw;
+    width: 5vw;
+    // background-color: rgba(255,0,0,0.1);
+
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    margin: auto;
+
+    .icon-wrap{
+        width: 100%;
+        height:100%;
+        // background-color: red;
+    }
+}
+
+// lively circles
+.circles-illustration-wrap{
+    display: flex;
+    align-items: center;
+    position: relative;
+   
+
+    // .circle-1{left: 0%;}
+    // .circle-2{left: 25%;}
+    // .circle-3{left:50%}
+    // .circle-4{left:75%}
+
+
+    .circle-1{left: 25%; animation-delay: 1.33s;}
+    .circle-2{left: 50%; animation-delay: 0.66s;}
+    .circle-3{left:75%; animation-delay: 0s;}
+    .circle-4{display: none;}
+}
+
+@keyframes circle-bg-color {
+    0%, 100% {
+        background-color: white;
+    }
+    50%{
+        background-color: #000000;
+    }
+}
+
+.circle-illustration {
+    border-radius: 100%;
+    height: 2vw;
+    width: 2vw;
+    border: 1px solid black;
+    background-color: white;
+    position: absolute;
+    margin-left: -0.8vw;
+
+    animation: circle-bg-color 4s ease-in-out infinite;
+    transition: margin-bottom 0.2s ease;
+    &:hover{
+        margin-bottom: 10%;
+    }
+}
+
+
+
+//clock timeless
+.clock-wrap {
+    overflow: hidden;
+    position: relative;
+    border-radius: 100%;
+    width:75%;
+    height: 75%;
+    margin:auto;
+}
+
+.minute,
+.hour {
+    position: absolute;
+    height: 40%;
+    width: 2px;
+    margin: auto;
+    top: -27%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: black;
+    transform-origin: bottom center;
+    transform: rotate(0deg);
+    z-index: 1;
+}
+
+.minute {
+    position: absolute;
+    height: 45%;
+    width: 2px;
+    top: -30%;
+    left: 0;
+    transform: rotate(90deg);
+}
+
+.second {
+    position: absolute;
+    height: 40%;
+    width: 1px;
+    margin: auto;
+    top: -27%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 4px;
+    background: #000000;
+    transform-origin: bottom center;
+    transform: rotate(180deg);
+    z-index: 1;
+}
+
+//representative
+.squares-wrap {
+    position: relative;
+    
+    &:hover{
+        .square-1{
+            transform: translate(-5%, 5%);
+            background-color:transparent;
+        }
+        .square-2{
+            transform: translate(5%, -5%);
+            background-color:transparent;
+        }
+    }
+}
+.square {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    border: 1px solid black;
+    background-color:white;
+    transition: transform 1s ease, background-color 1s ease;
+}
+
+.square-1 {
+    left: 20%;
+    top: 30%;
+    z-index: 2;
+}
+.square-2 {
+    left: 30%;
+    top:20%;
+    z-index: 1;
+}
+
+//stars impactful
+.stars-wrap {
+    position:relative;
+    svg{
+        position: absolute;
+        fill: transparent;
+        stroke: black;
+        transition: fill 1s ease-out;
+        &:hover{
+            fill: black;
+        }
+        
+    }
+    .star-1 {
+        width: 70%;
+        height: 70%;
+        top: 17%;
+        left:17%;
+        stroke-width: 13px;
+        z-index:2;
+        
+    }
+
+    .star-2 {
+        width: 35%;
+        height: 35%;
+        top: 10%;
+        left:60%;
+        stroke-width: 20px;
+        z-index:1;
+        display: none;
+    }
 }

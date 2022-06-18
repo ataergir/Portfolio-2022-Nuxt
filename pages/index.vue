@@ -31,55 +31,27 @@ export default {
   name: 'IndexPage',
   mounted() {
     window.addEventListener('load', () => {
-      setTimeout(() => {
-        
-      import('locomotive-scroll').then((locomotiveModule) => {
+      setTimeout(()=>{
+        document.querySelectorAll('.fake-section').forEach(section => {
+          section.style.height = '100vh'
+        })
+
         gsap.registerPlugin(ScrollTrigger)
-        const locoScroll = new locomotiveModule.default({
-          el: document.querySelector('.scroll-container'),
-          smooth: true,
-          lerp: 0.05,
-        })
-        locoScroll.on('scroll', ScrollTrigger.update)
-        ScrollTrigger.scrollerProxy('.scroll-container', {
-          scrollTop(value) {
-            return arguments.length
-              ? locoScroll.scrollTo(value, 0, 0)
-              : locoScroll.scroll.instance.scroll.y
-          },
-          getBoundingClientRect() {
-            return {
-              top: 0,
-              left: 0,
-              width: window.innerWidth,
-              height: window.innerHeight,
-            }
-          },
-          pinType: document.querySelector('.scroll-container').style.transform
-            ? 'transform'
-            : 'fixed',
-        })
-
-        ScrollTrigger.defaults({ scroller: '.scroll-container' })
-
-        ScrollTrigger.addEventListener('refresh', () => locoScroll.update())
-        ScrollTrigger.refresh()
 
         const tl = gsap.timeline({
           scrollTrigger: {
-            scroller: '.scroll-container',
-            markers: false,
+            markers: true,
             start: 'top top',
             end: 'bottom bottom',
-            scrub: true,
+            scrub: 2,
           },
         })
         const cameraParams = {
           y: -0.3,
           z: 1.1,
         }
-        // const invertEase = 'Power4.easeOut'
-        // const invertEase2 = 'Power4.easeIn'
+        const invertEase = 'Power4.easeOut'
+        const invertEase2 = 'Power4.easeIn'
 
         let nameYAnimation = -100
         const mediaQuery = window.matchMedia('(max-width: 768px)')
@@ -88,35 +60,35 @@ export default {
         }
         gsap.set('.horizontal-scroll', { yPercent: '-100', display: 'grid' })
         gsap.set('.webgl', { y: '-100vh', display: 'inline' })
-        tl.to('.name',{ yPercent: nameYAnimation, ease: 'none', duration: 3 },0)
-          .to('.available-container',{ opacity: '0', ease: 'Power4.easeIn' },0)
-          .to('.webgl', { y: '0', ease: 'none', duration: 1.5 }, 0)
-          .to(cameraParams,{ y: 0.4, ease: 'none', duration: 3, onUpdate: updateCamera },'>')
-          .to(cameraParams,{ z: 1.01, ease: 'none', duration: 3, onUpdate: updateCamera },'<')
-          .to('.horizontal-scroll', {yPercent: '0',ease: 'none',delay: -0.2, duration:2},'>')
-          .to('.webgl', { yPercent: '98', ease: 'none', duration:2 }, '<')
+        tl.to('.name',{ yPercent: nameYAnimation, ease: 'none', duration: 6 },0)
+        .to('.available-container',{ opacity: '0', ease: 'Power4.easeIn' },0)
+        .to('.webgl', { y: '0', ease: 'none', duration: 1.5 }, 0)
+        .to(cameraParams,{ y: 0.4, ease: 'none', duration: 3, onUpdate: updateCamera },'>')
+        .to(cameraParams,{ z: 1.01, ease: 'none', duration: 3, onUpdate: updateCamera },'<')
+        .to('.horizontal-scroll', {yPercent: '0',ease: 'none',delay: -0.2, duration:2},'>')
+        .to('.star', {rotation: 180,ease: 'none', duration:2},'<')
+        .to('.webgl', { yPercent: '98', ease: 'none', duration:2 }, '<')
 
-          .to('.pin-wrap', {
-            x: '-99.9vw',
-            ease: 'none',
-            delay: 0.5,
-            duration:3,
-            onStart: eyeAnimationTrue,
-            onReverseComplete: eyeAnimationFalse,
-          },'>')
-          .to('.webgl', { yPercent: '0', ease: 'none' }, '<')
+        .to('.pin-wrap', {x: '-99.9vw', ease: 'none', delay: 0.5, duration:3,
+          onStart: eyeAnimationTrue,
+          onReverseComplete: eyeAnimationFalse,
+        },'>')
+        .to('.star', {rotation: 480, ease: 'none', duration:3},'<-=0.5')
+        .to('.webgl', { yPercent: '0', ease: 'none' }, '<')
 
-          // .to(".pin-wrap *", { color: "rgba(0,0,0,1)", ease: invertEase }, "<")
-          // .to(".pin-wrap section", { backgroundColor: "rgba(255,255,255,1)", ease: invertEase }, "<")
-          // .to(".circle-title", { borderColor: "rgba(0,0,0,1)",backgroundColor: "rgba(0,0,0,1)", ease: invertEase }, "<")
-          .to('.circle-title',{ backgroundColor: 'rgba(255,255,255,1)', ease: 'none' },'<')
-          // .to(".title-line", { borderColor: "rgba(0,0,0,1)", ease: invertEase }, "<")
+        // .to(".pin-wrap *", { color: "rgba(0,0,0,1)", ease: invertEase }, "<")
+        // .to(".pin-wrap section", { backgroundColor: "rgba(255,255,255,1)", ease: invertEase }, "<")
+        // .to(".circle-title", { borderColor: "rgba(0,0,0,1)",backgroundColor: "rgba(0,0,0,1)", ease: invertEase }, "<")
+        // .to('.circle-title',{ backgroundColor: 'rgba(0,0,0,1)', ease: 'none' },'<')
+        // .to(".title-line", { borderColor: "rgba(0,0,0,1)", ease: invertEase }, "<")
+        
 
-          .to('.contact-container', { display: 'grid', ease: 'none' }, '<')
-          .to('.main-grid', { display: 'none', ease: 'none' }, '<')
+        .to('.contact-container', { display: 'grid', ease: 'none' }, '<')
+        .to('.main-grid', { display: 'none', ease: 'none' }, '<')
 
-          .to('.horizontal-scroll', { y: '100vh', ease: 'none', duration:2 })
-          .from('.contact-container', { y: '33vh', ease: 'none', duration:2 }, '<')
+
+        .to('.horizontal-scroll', { y: '100vh', ease: 'none', duration:2 })
+        .from('.contact-container', { y: '33vh', ease: 'none', duration:2 }, '<')
 
         function updateCamera() {
           $nuxt.$emit('cameraUpdate', cameraParams)
@@ -145,8 +117,7 @@ export default {
             0
           )
         }
-        // setTimeout(()=>{locoScroll.scrollTo('bottom', {duration:5000})},10000)
-        
+
         const nameLetters = document.querySelectorAll('.name span')
         for (let i = 1; i < nameLetters.length - 2; i++) {
           if (i != 1 && i != 4)
@@ -159,11 +130,8 @@ export default {
               },
               0
             )
-        }
-
-
-      })
-    },3000) //loading animation time
+      }
+      }, 5000)
   })
   }
 }
@@ -174,7 +142,6 @@ export default {
   @include reset;
 }
 
-
 .main-grid {
   position: fixed;
   overflow: hidden;
@@ -184,7 +151,7 @@ export default {
   display: none;
 }
 .webgl {
-  display:none;
+  display: none;
 }
 
 .pin-wrap {
@@ -199,13 +166,13 @@ export default {
 
 .scroll-container {
   width: 100vw;
-  overflow: hidden;
-  transform: none !important;
+  // overflow: hidden;
+  // transform: none !important;
 }
 
 .fake-section {
   width: 0;
-  height: 100vh;
-  pointer-events: none !important;
+  height: 0;
+  // pointer-events: none !important;
 }
 </style>

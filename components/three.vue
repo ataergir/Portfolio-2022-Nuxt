@@ -81,7 +81,26 @@ export default {
     initStats: function(){
         this.stats = new Stats()
         this.stats.showPanel( 0 ) // 0: fps, 1: ms, 2: mb, 3+: custom
-        // document.body.appendChild( this.stats.dom )
+        document.body.appendChild( this.stats.dom )
+        this.stats.dom.classList.add('fps')
+        this.stats.dom.style.width = '100%'
+        this.stats.dom.style.height = '100%'
+        this.stats.dom.style.position = 'static'
+        document.querySelector('.dev-point-1-wrap').appendChild( this.stats.dom )
+
+        let counter = 0;
+        document.querySelectorAll('.dev-point-1-wrap canvas').forEach(canvas =>{
+            if(counter == 0){
+                canvas.style = 'width: 100%; height: 60%; display:block;'
+            } else{
+                canvas.style = 'width: 100%; height: 60%;display:none;'
+            }
+
+            // if(counter == 2){
+            //     canvas.remove()
+            // }
+            counter ++;
+        })
     },
     addEventListeners: function() {
         window.addEventListener('resize', () =>
@@ -139,10 +158,9 @@ export default {
     },
   mounted() {
     this.init()
-    this.initStats()
     this.initWater()
     this.addEventListeners()
-    this.animate()
+    
 
     this.$nuxt.$on('cameraUpdate', position => {
         this.camera.position.y = position.y
@@ -155,6 +173,15 @@ export default {
     })
     this.$nuxt.$on('eyeAnimationTrue', () => {
         this.eyeAnimation = true
+    })
+
+    let stats = false
+    this.$nuxt.$on('third-grid-loaded', () => {
+        if (stats == false){
+            this.initStats()
+            this.animate()
+            stats = true
+        }
     })
   }
 }

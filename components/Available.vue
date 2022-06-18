@@ -1,7 +1,10 @@
 <template>
   <div class="available-container">
       <div class="circle"></div>
-      <p class="available-text">Available</p>
+      <!-- <p class="available-text">Available</p> -->
+      <a target="_blank" rel="noopener noreferrer" href="mailto:aergir@proton.me" class="available-text">
+        Available
+      </a>
   </div>
 </template>
 
@@ -47,6 +50,8 @@ $available-size-small: 1rem;
     opacity:1;
     
     white-space: nowrap;
+    color:black;
+    text-decoration: none;
     
 
     @media screen and (min-width: 320px) {
@@ -57,5 +62,9 @@ $available-size-small: 1rem;
         font-size:$available-size;
         padding:0.4rem 1rem;
     }
+}
+
+.available-text:visited{
+    color:black;
 }
 </style>
