@@ -1,11 +1,11 @@
 <template>
-  <div class="available-container">
-      <div class="circle"></div>
-      <!-- <p class="available-text">Available</p> -->
-      <a target="_blank" rel="noopener noreferrer" href="mailto:aergir@proton.me" class="available-text">
-        Available
-      </a>
-  </div>
+  <a target="_blank" rel="noopener noreferrer" href="mailto:aergir@proton.me" class="available-container">
+    <div class="circle"></div>
+    <!-- <p class="available-text">Available</p> -->
+    <p class="available-text">
+    Available
+    </p>
+  </a>
 </template>
 
 <style lang="scss">
@@ -64,7 +64,7 @@ $available-size-small: 1rem;
     }
 }
 
-.available-text:visited{
+.available-container:visited{
     color:black;
 }
 </style>

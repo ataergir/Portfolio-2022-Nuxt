@@ -130,6 +130,10 @@
         height:100%;
         // background-color: red;
     }
+
+    @media screen and (max-width: 720px) {
+        display: none;
+    }
 }
 
 // lively circles
