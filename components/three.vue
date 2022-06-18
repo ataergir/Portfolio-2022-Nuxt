@@ -3,13 +3,9 @@
 </template>
 
 <script>
-import * as THREE from 'three'
+import { LoadingManager, PerspectiveCamera, Scene, SphereBufferGeometry, WebGLRenderer, Vector3, TextureLoader, RepeatWrapping } from 'three'
 import Stats from 'stats.js'
-import { gsap } from "gsap"
 import { Water } from '~/static/js/Water.js'
-import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js'
-import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js'
-import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js'
 
 export default {
   name: 'Three',
@@ -26,10 +22,6 @@ export default {
             width: null,
             height: null
         },
-        params : {
-            test: null,
-            height:0.8
-        },
         cursor : {
             x: null,
             y: null
@@ -44,39 +36,31 @@ export default {
     init: function() {
         const canvas = document.querySelector('canvas.webgl')
 
-        this.loadingManager = new THREE.LoadingManager()
+        this.loadingManager = new LoadingManager()
         this.loadingManager.onLoad = () => {
         }
 
         this.sizes.width = window.innerWidth
         this.sizes.height = window.innerHeight 
 
-        this.camera = new THREE.PerspectiveCamera(75, this.sizes.width / this.sizes.height, 0.0001, 100)
+        this.camera = new PerspectiveCamera(75, this.sizes.width / this.sizes.height, 0.0001, 100)
         this.camera.position.x = 0
         this.camera.position.y = -0.3
         this.camera.position.z = 1.1
         this.camera.lookAt(0,0,0)
 
-        // gist.github.com/ayamflow/96a1f554c3f88eef2f9d0024fc42940f
-        // let dist = this.camera.position.z
-        // let height = this.params.height
-        // this.camera.fov = 2 * Math.atan(height / (2 * dist)) * (180 / Math.PI)
-        // this.camera.updateProjectionMatrix()
+        this.scene = new Scene()
 
-        this.scene = new THREE.Scene()
 
-        this.raycaster = new THREE.Raycaster()
-        this.pointer = new THREE.Vector2()
-
-        this.renderer = new THREE.WebGLRenderer({
+        this.renderer = new WebGLRenderer({
             canvas: canvas,
             alpha:true,
-            // antialias: true
+            antialias: false
         })
         this.renderer.setSize(this.sizes.width, this.sizes.height)
         this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
-        this.geometry = new THREE.SphereBufferGeometry( 1, 64, 64 )
+        this.geometry = new SphereBufferGeometry( 1, 64, 64 )
     },
     initStats: function(){
         this.stats = new Stats()
@@ -88,19 +72,12 @@ export default {
         this.stats.dom.style.position = 'static'
         document.querySelector('.dev-point-1-wrap').appendChild( this.stats.dom )
 
-        let counter = 0;
-        document.querySelectorAll('.dev-point-1-wrap canvas').forEach(canvas =>{
-            if(counter == 0){
-                canvas.style = 'width: 100%; height: 60%; display:block;'
-            } else{
-                canvas.style = 'width: 100%; height: 60%;display:none;'
-            }
 
-            // if(counter == 2){
-            //     canvas.remove()
-            // }
-            counter ++;
+        document.querySelectorAll('.fps canvas').forEach(canvas =>{
+            canvas.style.width = '100%'
+            canvas.style.height = '60%'
         })
+
     },
     addEventListeners: function() {
         window.addEventListener('resize', () =>
@@ -110,7 +87,7 @@ export default {
 
         document.body.addEventListener('mousemove',(e)=>{
             if(this.eyeAnimation == true){
-                this.waterMesh.material.uniforms.eye.value = new THREE.Vector3(0.01 * e.clientX, 0.0005 * e.clientY, 0 )
+                this.waterMesh.material.uniforms.eye.value = new Vector3(0.01 * e.clientX, 0.0005 * e.clientY, 0 )
             }
         })
     },
@@ -120,12 +97,12 @@ export default {
             {
                 textureWidth: 512,
                 textureHeight: 512,
-                waterNormals: new THREE.TextureLoader().load( '/img/normals.jpg', function ( texture ) {
+                waterNormals: new TextureLoader().load( '/img/normals.jpg', function ( texture ) {
 
-                    texture.wrapS = texture.wrapT = THREE.RepeatWrapping
+                    texture.wrapS = texture.wrapT = RepeatWrapping
 
                 } ),
-                sunDirection: new THREE.Vector3(0.5,0,0),
+                sunDirection: new Vector3(0.5,0,0),
                 sunColor: 0xffffff,
                 waterColor: 0xffffff,
                 distortionScale: 200,
@@ -169,7 +146,7 @@ export default {
 
     this.$nuxt.$on('eyeAnimationFalse', () => {
         this.eyeAnimation = false
-        this.waterMesh.material.uniforms.eye.value = new THREE.Vector3()
+        this.waterMesh.material.uniforms.eye.value = new Vector3()
     })
     this.$nuxt.$on('eyeAnimationTrue', () => {
         this.eyeAnimation = true

@@ -50,11 +50,10 @@ export default {
     tlLoad
     .to(".loading-bg", { yPercent: -100, duration: 3 })
     .to(".loading-bg", { xPercent: 1000, duration: 0, ease: "none" })
-    .to('.name h1',{fontSize:"8.3vw", duration:2, ease:'Power4.easeInOut',
-    onComplete:function(){
-      document.querySelector('.name h1').classList.add('name-hover-effect')
-    },
-    },"-=1")
+    .to('.name h1',{fontSize:"8.3vw", duration:2, ease:'Power4.easeInOut',},"-=1")
+    // onComplete:function(){
+    //   document.querySelector('.name h1').classList.add('name-hover-effect')
+    // }
     .from(".opacity-fade-in", { opacity: 0, duration: 4, ease: "Power4.easeOut" })
     .from(".translate-in", { yPercent: 200, duration: 3, ease: "Power4.easeOut" }, "<")
     .from(".translate-in-slow", { yPercent: 100, opacity: 0, duration: 4, ease: "Power4.easeOut", onComplete: function () { $nuxt.$emit("nextPlane"); }
