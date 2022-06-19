@@ -18,6 +18,11 @@ $available-size-small: 1rem;
     border: 1px solid black;
     display: flex;
     flex-direction: row;
+    &:hover{
+        .circle{
+            animation: none;
+        }
+    }
 }
 
 .circle{
