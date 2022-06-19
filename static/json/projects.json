@@ -1,25 +1,5 @@
 [
   {
-    "title": ".",
-    "date": "[soon]",
-    "description": "I built my first portfolio using mainly Three.js and GSAP.",
-    "categories":["Developement", "Design", "WebGL", "Motion Design"],
-    "images":[""],
-    "link":"",
-    "more": false
-  },
-
-  {
-    "title": ".",
-    "date": "[soon]",
-    "description": "",
-    "categories":["Developement", "Design", "Motion Design", "WebGL"],
-    "images":[""],
-    "link":"",
-    "more": false
-  },
-
-  {
     "title": "portfolio v1",
     "date": "04.22",
     "description": "I built my first portfolio using mainly Three.js and GSAP.",
@@ -39,5 +19,4 @@
     "repo":"http://github.com/ataergir/music-scale",
     "more": false
   }
-
 ]
