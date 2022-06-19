@@ -5,8 +5,7 @@
     "description": "I built my first portfolio using mainly Three.js and GSAP.",
     "categories":["Developement", "Design", "WebGL", "Motion Design"],
     "images":["portfolio-v1.jpg"],
-    "link":"http://ataergir-portfoliov1.netlify.app/",
-    "more": false
+    "link":"http://ataergir-portfoliov1.netlify.app/"
   },
 
   {
@@ -16,7 +15,6 @@
     "categories":["Developement", "Design"],
     "images":["scale.jpg"],
     "link":"http://music-scale.netlify.app/",
-    "repo":"http://github.com/ataergir/music-scale",
-    "more": false
+    "repo":"http://github.com/ataergir/music-scale"
   }
 ]
