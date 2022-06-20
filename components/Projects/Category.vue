@@ -36,6 +36,18 @@ export default {
                 bgColor = '#fec5bb'
                 textColor = 'black'
                 break;
+            case 'Digital art': 
+                bgColor = '#0000ff'
+                textColor = 'white'
+                break;
+            case 'Photography': 
+                bgColor = '#00dd00'
+                textColor = 'white'
+                break;
+            case 'Experimental': 
+                bgColor = '#CCA9DD'
+                textColor = 'black'
+                break;
             // case 'Front End': 
             //     bgColor = 'rgb(0,255,120)'
             //     textColor = 'black'

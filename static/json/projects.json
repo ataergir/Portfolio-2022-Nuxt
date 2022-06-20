@@ -1,5 +1,12 @@
 [
   {
+    "title": "playground",
+    "date": "[soon]",
+    "description": "A place to see and interact with my last web experimentations. Coming soon!",
+    "categories":["Experimental", "Interactive", "WebGL" ],
+    "videos":["playground.mp4"]
+  },
+  {
     "title": "portfolio v1",
     "date": "04.22",
     "description": "I built my first portfolio using mainly Three.js and GSAP.",
@@ -16,5 +23,15 @@
     "images":["scale.jpg"],
     "link":"http://music-scale.netlify.app/",
     "repo":"http://github.com/ataergir/music-scale"
+  },
+
+  {
+    "title": "artwork",
+    "date": "202x",
+    "description": "Passionate about digtal art, photography and music, my artistic background gives me the will to turn visual forms into human experiences.",
+    "categories":["Digital art", "Photography"],
+    "squareImages":["artwork1.png", "artwork2.jpg"],
+    "art":"http://www.instagram.com/cold.flesh/",
+    "photography":"http://www.instagram.com/cold.flesh/"
   }
 ]

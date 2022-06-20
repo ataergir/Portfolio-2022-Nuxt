@@ -19,6 +19,14 @@
             <div class="img-bg" v-for="(img, index) in project.images" :key="index" :style="{ backgroundImage: `url(img/${img})`}"></div>
           </div>
 
+          <div class="img-container-square" v-if="project.squareImages">
+            <div class="img-bg-square" v-for="(img, index) in project.squareImages" :key="index" :style="{ backgroundImage: `url(img/${img})`}"></div>
+          </div>
+
+          <div class="img-container-square" v-if="project.videos">
+            <video v-for="(video, index) in project.videos" autoplay muted loop :key="index" :src="require(`~/static/video/${video}`)"></video>
+          </div>
+
           <div class="text-categories-container">
             <div class="project-categories">
               <ProjectsCategory v-for="(category, index) in project.categories" :key="index" :category='category' class="project-category"/>
@@ -30,6 +38,8 @@
             <div class="project-links">
               <a v-if="project.link" :href='project.link' target="_blank" rel="noopener noreferrer">see live ➝</a>
               <a v-if="project.repo" :href='project.repo' target="_blank" rel="noopener noreferrer">see repo ➝</a>
+              <a v-if="project.photography" :href='project.photography' target="_blank" rel="noopener noreferrer">see photos ➝</a>
+              <a v-if="project.art" :href='project.art' target="_blank" rel="noopener noreferrer">see digital art ➝</a>
             </div>
             
           </div>
@@ -78,9 +88,6 @@ import { gsap } from "gsap"
 </script>
 
 <style lang="scss" scoped>
-// $container-width:calc(100vw - 2 * $margin);
-// $projects-width:calc($container-width * 0.66666);
-// $single-column: calc(($projects-width / 8) - 7 * $column-gutter);
 .projects-ul{
     min-width:100%;
     li {
@@ -170,6 +177,38 @@ import { gsap } from "gsap"
               }
               @media screen and (min-width: 720px) {
                 width:30vw;
+                height:16.88vw;
+              }
+            }
+          }
+
+          .img-container-square{
+            display:flex;
+            flex-direction:row;
+            justify-content: space-around;
+            gap:1rem;
+            margin-bottom:1rem;
+            width:auto;
+            height:auto;
+            .img-bg-square{
+              background-size: 100% auto;
+              @media screen and (min-width: 320px) {
+                width:calc((80vw - 2rem) * (9/16));
+                height:calc((80vw - 2rem) * (9/16));
+              }
+              @media screen and (min-width: 720px) {
+                width:16.88vw;
+                height:16.88vw;
+              }
+            }
+
+            video{
+              @media screen and (min-width: 320px) {
+                width:calc((80vw - 2rem) * (9/16));
+                height:calc((80vw - 2rem) * (9/16));
+              }
+              @media screen and (min-width: 720px) {
+                width:16.88vw;
                 height:16.88vw;
               }
             }

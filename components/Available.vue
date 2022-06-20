@@ -10,7 +10,7 @@
 
 <style lang="scss">
 $available-size: 2.2rem;
-$available-size-small: 1rem;
+$available-size-small: 1.5rem;
 .available-container{
     border-radius: 999vw;
     width:min-content;
