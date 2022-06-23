@@ -38,7 +38,7 @@
       </div>
     </div>
 
-    <ProjectsList class="projects translate-in-slow" />
+    <ProjectsList class="projects" />
     </div>
   </section>
 </div>
@@ -60,13 +60,18 @@ export default {
     .from(".opacity-fade-in", { opacity: 0, duration: 4, ease: "Power4.easeOut" })
     .from(".translate-in", { yPercent: 200, duration: 3, ease: "Power4.easeOut" }, "<")
     
-    .from(".translate-in-slow", { yPercent: 100, opacity: 0, duration: 4, ease: "Power4.easeOut", onComplete: function () { $nuxt.$emit("nextPlane"); }
-    }, "<")
-    .from(".translate-in-left", { xPercent: -100, duration: 2, ease: "Power4.easeOut" }, ">")
-    const projects = document.querySelectorAll('.project')
-    for(let i = 0; i < projects.length ; i++){
-      tlLoad.from(`.project-${i}`, {y:100, duration:`${1 + i * 1.1}`, ease:'Power4.easeOut'},'<')
-    }
+    // .from(".translate-in-slow", { yPercent: 100, opacity: 0, duration: 4, ease: "Power4.easeOut"}, "<")
+    .from(".translate-in-left", { xPercent: -100, duration: 2, ease: "Power4.easeOut" }, "<+=1")
+
+    setTimeout(()=>{
+      const projects = document.querySelectorAll('.project')
+      document.querySelector(`.projects`).style.display = "flex"
+      let counter = 0;
+      for (let i = 0; i < projects.length; i++) {
+        tlLoad.from(`.project-${i}`,{ yPercent: 500, ease: 'Power4.easeOut', duration: 2, delay: counter * 0.2,}, '<' )
+        counter += 0.5
+      }},2000)
+
     }
 }
 </script>

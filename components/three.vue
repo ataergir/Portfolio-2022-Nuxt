@@ -71,6 +71,7 @@ export default {
         this.stats.dom.style.height = '100%'
         this.stats.dom.style.position = 'static'
         document.querySelector('.dev-point-1-wrap').appendChild( this.stats.dom )
+        document.querySelector('.fps').removeChild(document.querySelector('.fps').lastChild)
 
 
         document.querySelectorAll('.fps canvas').forEach(canvas =>{

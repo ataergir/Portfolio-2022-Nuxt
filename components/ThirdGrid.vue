@@ -33,7 +33,16 @@
       <div class="icon dev-point-2-icon">
         <div class="icon-wrap dev-point-2-wrap">
           <div class="desktop screen"></div>
-          <div class="mobile screen"></div>
+        </div>
+      </div>
+      <div class="icon dev-point-2-icon">
+        <div class="icon-wrap dev-point-2-wrap">
+          <div class="desktop2 screen"></div>
+        </div>
+      </div>
+      <div class="icon dev-point-2-icon">
+        <div class="icon-wrap dev-point-2-wrap">
+          <div class="desktop3 screen"></div>
         </div>
       </div>
 

@@ -2,7 +2,6 @@
   <div>
     <ul class="projects-ul">
       <li v-for="(project, index) in this.projects" :key="index" class="project" :class="[`project-${index}`]" v-on:click="toggle(index)">
-
         <div class="outside-li hover-effect"
         :class="[`outside-li-${index}`]">
           <p class="date">{{ project.date }}</p>
