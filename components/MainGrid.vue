@@ -51,7 +51,7 @@ export default {
     const tlLoad = gsap.timeline({})
 
     tlLoad
-    .to(".loading-bg", { yPercent: -100, duration: 3 })
+    .to(".loading-bg", { yPercent: -100, duration: 5, ease: "Expo.easeInOut" })
     .to(".loading-bg", { xPercent: 1000, duration: 0, ease: "none" })
     .to('.name h1',{fontSize:"8.3vw", duration:2, ease:'Power4.easeInOut',},"-=1")
     // onComplete:function(){
