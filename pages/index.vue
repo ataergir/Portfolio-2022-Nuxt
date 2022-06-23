@@ -53,15 +53,17 @@ export default {
         const invertEase = 'Power4.easeOut'
         const invertEase2 = 'Power4.easeIn'
 
-        let nameYAnimation = -100
+        let nameYAnimation = -50
         const mediaQuery = window.matchMedia('(max-width: 768px)')
         if (mediaQuery.matches) {
-          nameYAnimation = 100
+          nameYAnimation = 50
         }
         gsap.set('.horizontal-scroll', { yPercent: '-100', display: 'grid' })
         gsap.set('.webgl', { y: '-100vh', display: 'inline' })
         tl.to('.name',{ yPercent: nameYAnimation, ease: 'none', duration: 6 },0)
         .to('.available-container',{ opacity: '0', ease: 'Power4.easeIn' },0)
+        .to('#awwwards svg',{ xPercent: '-200', ease: 'Power4.easeOut', duration:6 },0)
+        
         .to('.webgl', { y: '0', ease: 'none', duration: 1.5 }, 0)
         .to(cameraParams,{ y: 0.4, ease: 'none', duration: 3, onUpdate: updateCamera },'>')
         .to(cameraParams,{ z: 1.01, ease: 'none', duration: 3, onUpdate: updateCamera },'<')
@@ -124,7 +126,7 @@ export default {
             tl.to(
               `.name-letter-${i}`,
               {
-                y: `${i * 2}vh`,
+                y: `${i }vh`,
                 ease: 'none',
                 duration: 3,
               },

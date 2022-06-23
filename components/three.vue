@@ -85,9 +85,12 @@ export default {
             this.resize()
         })
 
+        const vectorEye = new Vector3(0,0,0)
         document.body.addEventListener('mousemove',(e)=>{
             if(this.eyeAnimation == true){
-                this.waterMesh.material.uniforms.eye.value = new Vector3(0.01 * e.clientX, 0.0005 * e.clientY, 0 )
+                vectorEye.x = 0.0005 * e.clientX
+                vectorEye.y = 0.0008 * e.clientY
+                this.waterMesh.material.uniforms.eye.value = vectorEye
             }
         })
     },
