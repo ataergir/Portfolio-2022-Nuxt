@@ -18,7 +18,7 @@
   {
     "title": "scale",
     "date": "02.22",
-    "description": "I created a tool to help musicians easily find chord progressions in any scale. Feel free to contribute to the scales list on the Github repository!",
+    "description": "I created a tool to help musicians find chord progressions in any scale. Feel free to contribute to the scales list on the Github repository!",
     "categories":["Developement", "Design"],
     "images":["scale.jpg"],
     "link":"http://music-scale.netlify.app/",
