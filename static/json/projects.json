@@ -10,7 +10,7 @@
     "title": "portfolio v1",
     "date": "04.22",
     "description": "I built my first portfolio using mainly Three.js and GSAP.",
-    "categories":["Developement", "Design", "WebGL", "Motion Design"],
+    "categories":["Development", "Design", "WebGL", "Motion Design"],
     "images":["portfolio-v1.jpg"],
     "link":"http://ataergir-portfoliov1.netlify.app/"
   },
@@ -19,7 +19,7 @@
     "title": "scale",
     "date": "02.22",
     "description": "I created a tool to help musicians find chord progressions in any scale. Feel free to contribute to the scales list on the Github repository!",
-    "categories":["Developement", "Design"],
+    "categories":["Development", "Design"],
     "images":["scale.jpg"],
     "link":"http://music-scale.netlify.app/",
     "repo":"http://github.com/ataergir/music-scale"
