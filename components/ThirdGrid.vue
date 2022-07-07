@@ -4,7 +4,7 @@
     <div class="grid-container">
 
        
-      <h2 class="points-title dev-title">Developement
+      <h2 class="points-title dev-title">Development
         <div class="title-line"></div>
       </h2>
             

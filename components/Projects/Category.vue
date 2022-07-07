@@ -24,7 +24,7 @@ export default {
                 bgColor = '#FFD6A5'
                 textColor = 'black'
                 break;
-            case 'Developement': 
+            case 'Development': 
                 bgColor = '#FDFFB6'
                 textColor = 'black'
                 break;
